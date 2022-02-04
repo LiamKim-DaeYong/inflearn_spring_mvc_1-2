@@ -2,8 +2,10 @@ package hello.springmvc.basic.requestmapping;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+import static org.springframework.http.MediaType.TEXT_HTML_VALUE;
 
 @RestController
 public class MappingController {
@@ -52,13 +54,13 @@ public class MappingController {
         return "ok";
     }
 
-    @PostMapping(value = "/mapping-sonsume", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/mapping-sonsume", consumes = APPLICATION_JSON_VALUE)
     public String mappingConsumes() {
         log.info("mappingConsumes");
         return "ok";
     }
 
-    @PostMapping(value = "/mapping-produce", produces = MediaType.TEXT_HTML_VALUE)
+    @PostMapping(value = "/mapping-produce", produces = TEXT_HTML_VALUE)
     public String mappingProduce() {
         log.info("mappingProduce");
         return "ok";
